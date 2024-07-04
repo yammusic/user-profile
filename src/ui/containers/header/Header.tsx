@@ -36,13 +36,13 @@ export function Header() {
           <div className={ styles.column }>
             <Avatar
               alt={ user?.name }
-              className="top-[-4rem]"
+              className={ styles.avatar }
               size="xxl"
               src="/assets/avatar.jpg"
               variant="circular"
             />
 
-            <div className="flex flex-col gap-1 mt-[-4rem]">
+            <div className={ styles.userInfo }>
               <Typography variant="h5">
                 { user?.name }
               </Typography>
@@ -54,9 +54,9 @@ export function Header() {
             </div>
           </div>
 
-          <div className={ styles.column }>
+          <div className={ styles.actions }>
             <IconButton onClick={ onToggle } variant="text">
-              { colorMode === 'dark' ? <CiDark size={ 24 } /> : <CiLight size={ 24 } /> }
+              { colorMode === 'light' ? <CiDark size={ 24 } /> : <CiLight size={ 24 } /> }
             </IconButton>
           </div>
         </div>

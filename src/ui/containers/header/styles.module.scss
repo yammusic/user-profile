@@ -1,14 +1,17 @@
+$navbarHeight: 80px;
+
 .header {
   @apply
     sticky
     top-0
     z-10
     h-max
-    w-full;
+    w-full
+    relative;
 
   .navbar {
     @apply
-      h-max
+      h-[#{$navbarHeight}]
       w-full
       rounded-none
       px-4
@@ -28,6 +31,27 @@
           flex
           items-center
           gap-4;
+
+        .avatar {
+          @apply
+            top-[-4rem];
+        }
+
+        .userInfo {
+          @apply
+            flex
+            flex-col
+            gap-1
+            mt-[-4rem];
+        }
+      }
+
+      .actions {
+        @apply
+          flex
+          items-center
+          gap-4
+          mt-[-4rem];
       }
     }
   }
