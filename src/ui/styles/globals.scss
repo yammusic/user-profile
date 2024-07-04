@@ -8,6 +8,11 @@
   @include getColorsVars();
 }
 
+html, body {
+  @apply
+    scroll-smooth;
+}
+
 body {
   @apply
   m-0
