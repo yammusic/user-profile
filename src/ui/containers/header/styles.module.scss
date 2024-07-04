@@ -1,0 +1,34 @@
+.header {
+  @apply
+    sticky
+    top-0
+    z-10
+    h-max
+    w-full;
+
+  .navbar {
+    @apply
+      h-max
+      w-full
+      rounded-none
+      px-4
+      py-2
+      lg:px-8
+      lg:py-4;
+
+    .content {
+      @apply
+        flex
+        items-center
+        justify-between
+        text-blue-gray-900;
+
+      .column {
+        @apply
+          flex
+          items-center
+          gap-4;
+      }
+    }
+  }
+}

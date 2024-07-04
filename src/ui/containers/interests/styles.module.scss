@@ -1,0 +1,66 @@
+.interests {
+  @apply
+    bg-white
+    p-12
+    mt-12
+    w-full
+    flex
+    flex-col
+    gap-6;
+
+  .container {
+    @apply
+      grid
+      grid-cols-1
+      md:grid-cols-2
+      lg:grid-cols-3
+      gap-6;
+
+    .article {
+      @apply
+        bg-gray-100
+        p-8
+        w-full
+        flex
+        flex-col
+        items-center
+        gap-3
+        box-border
+        transition
+        duration-300
+        ease-in-out;
+
+      .icon {
+        @apply
+          w-14
+          h-14
+          my-6
+          text-blue-700;
+      }
+
+      .title {
+        @apply
+          font-semibold;
+      }
+
+      .description {
+        @apply
+          text-center;
+      }
+
+      &:hover {
+        @apply
+          bg-blue-700
+          shadow-2xl
+          shadow-gray-200
+          scale-105
+          text-white;
+
+        .icon {
+          @apply
+            text-white;
+        }
+      }
+    }
+  }
+}

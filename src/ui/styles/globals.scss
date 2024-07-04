@@ -1,0 +1,31 @@
+@use 'colors' as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  @include getColorsVars();
+}
+
+body {
+  @apply
+  m-0
+  p-0
+  box-border
+  min-h-screen
+  flex
+  flex-col
+  items-center
+  bg-gray-100
+  antialiased;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+// @media (prefers-color-scheme: dark) {
+// }
