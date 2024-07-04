@@ -3,7 +3,10 @@ import type { ReactNode } from 'react'
 export interface UserType {
   name: string
   role: string
+  email: string
+  phone: string
   description: string[]
+  location: string
   interests: {
     Icon: any
     title: string

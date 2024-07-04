@@ -14,6 +14,9 @@ import type { UserProviderProps, UserState } from './types'
 const initialState: UserState['user'] = {
   name: 'Alejandro Martínez',
   role: 'Diseñador Gráfico',
+  email: 'alejandro.martinez@mail.com',
+  phone: '+1 (123) 456-7890',
+  location: 'CABA, Argentina',
   description: [
     'Soy Alejandro Martínez, un diseñador gráfico apasionado por el arte visual y la comunicación efectiva. Con más de 8 años de experiencia en la industria del diseño, he tenido la oportunidad de trabajar en una amplia variedad de proyectos, desde la creación de identidades visuales hasta el desarrollo de campañas publicitarias integrales.',
     'Mi carrera comenzó en una pequeña agencia de publicidad, donde rápidamente me di cuenta de mi amor por el diseño de logotipos y la creación de marcas. A lo largo de los años, he perfeccionado mis habilidades en ilustración digital, diseño web y fotografía, permitiéndome ofrecer soluciones de diseño completas y coherentes para mis clientes.',
@@ -93,3 +96,5 @@ export function UserProvider({ children }: Readonly<UserProviderProps>) {
     </UserContext.Provider>
   )
 }
+
+export default UserProvider
