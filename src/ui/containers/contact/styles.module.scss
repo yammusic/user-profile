@@ -8,4 +8,67 @@
     flex-col
     gap-6
     box-border;
+
+  .content {
+    @apply
+      flex
+      flex-col
+      w-full
+      gap-6
+      lg:flex-row;
+
+    .infoContainer {
+      @apply
+        flex
+        flex-col
+        flex-1;
+
+      .info {
+        @apply
+          flex
+          flex-col
+          gap-3;
+
+        .itemContainer {
+          @apply
+            flex
+            items-center
+            gap-2;
+
+          .icon {
+            @apply
+              text-4xl
+              text-blue-500;
+          }
+
+          .link {
+            @apply
+              text-blue-500
+              hover:underline;
+          }
+        }
+      }
+    }
+
+    .formContainer {
+      @apply
+        flex
+        flex-col
+        flex-1
+        mt-6
+        lg:mt-0;
+
+      .title {
+        @apply
+          mb-6;
+      }
+    }
+  }
+}
+
+.form {
+  @apply
+    flex
+    flex-col
+    space-y-4;
 }
