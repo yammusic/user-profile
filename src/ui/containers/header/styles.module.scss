@@ -1,4 +1,6 @@
 $navbarHeight: 80px;
+$navbarHeightScrolled: 90px;
+$bannerHeight: 500px;
 
 .header {
   @apply
@@ -7,7 +9,53 @@ $navbarHeight: 80px;
     z-10
     h-max
     w-full
-    relative;
+    relative
+    transition-transform
+    duration-300
+    ease-in-out;
+
+  &.scrolled {
+    .banner {
+      @apply
+        absolute
+        translate-y-[-100%]
+        opacity-0;
+    }
+
+    .navbar {
+      @apply
+        h-[#{$navbarHeightScrolled}];
+
+      .content {
+        .column {
+          .avatar {
+            @apply
+              top-0;
+          }
+
+          .userInfo {
+            @apply
+              mt-0;
+          }
+        }
+
+        .actions {
+          @apply
+            mt-0;
+        }
+      }
+    }
+  }
+
+  .banner {
+    @apply
+      relative
+      w-full
+      overflow-hidden
+      transition-all
+      duration-300
+      ease-in-out;
+  }
 
   .navbar {
     @apply
@@ -39,7 +87,10 @@ $navbarHeight: 80px;
 
         .avatar {
           @apply
-            top-[-4rem];
+            top-[-4rem]
+            transition-all
+            duration-300
+            ease-in-out;
         }
 
         .userInfo {

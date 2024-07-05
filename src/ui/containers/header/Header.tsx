@@ -1,7 +1,8 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import { useDebouncedCallback } from 'use-debounce'
 import { CiDark, CiLight } from 'react-icons/ci'
 
 import {
@@ -16,21 +17,40 @@ import { useUser } from '@/domain/contexts/user'
 import styles from './styles.module.scss'
 
 export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false)
   const { user, colorMode, toggleColorMode } = useUser()
+  const bannerRef = useRef<HTMLDivElement>(null)
   const isDark = colorMode === 'dark'
 
   const onToggle = () => {
     toggleColorMode()
   }
 
+  const handleScroll = useDebouncedCallback(() => {
+    const scrollPosition = window.scrollY
+
+    if (bannerRef.current) {
+      setIsScrolled(scrollPosition > bannerRef.current.offsetHeight)
+    }
+  }, 60)
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <header className={ styles.header }>
-      <Image
-        alt="banner"
-        height={ BANNER_HEIGHT }
-        src="/assets/banner.webp"
-        width={ BANNER_WIDTH }
-      />
+    <header className={ `${styles.header} ${isScrolled ? styles.scrolled : ''}` }>
+      <div className={ styles.banner } ref={ bannerRef }>
+        <Image
+          alt="banner"
+          height={ BANNER_HEIGHT }
+          src="/assets/banner.webp"
+          width={ BANNER_WIDTH }
+        />
+      </div>
 
       <Navbar
         className={ `${styles.navbar} ${isDark ? styles.dark : ''}` }
@@ -42,7 +62,7 @@ export function Header() {
             <Avatar
               alt={ user?.name }
               className={ styles.avatar }
-              size="xxl"
+              size={ isScrolled ? 'lg' : 'xxl' }
               src="/assets/avatar.jpg"
               variant="circular"
             />
