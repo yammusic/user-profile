@@ -15,7 +15,7 @@ export function Title(props: Readonly<TitleProps>) {
     >
       { children }
 
-      <div className={ styles.underline } />
+      <div className={ styles.underline } data-testid="underline" />
     </Typography>
   )
 }

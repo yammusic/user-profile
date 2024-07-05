@@ -30,7 +30,7 @@ export function ContactSection() {
 
           <div className={ styles.info }>
             <div className={ styles.itemContainer }>
-              <TiPhoneOutline className={ styles.icon } />
+              <TiPhoneOutline className={ styles.icon } data-testid="phone-icon" />
 
               <Link href={ `tel:${user?.phone}` } rel="noopener noreferrer">
                 <Typography className={ styles.link }>
@@ -40,7 +40,7 @@ export function ContactSection() {
             </div>
 
             <div className={ styles.itemContainer }>
-              <MdOutlineAlternateEmail className={ styles.icon } />
+              <MdOutlineAlternateEmail className={ styles.icon } data-testid="email-icon" />
 
               <Link href={ `mailto:${user?.email}` } rel="noopener noreferrer">
                 <Typography className={ styles.link }>
@@ -50,7 +50,7 @@ export function ContactSection() {
             </div>
 
             <div className={ styles.itemContainer }>
-              <MdOutlineLocationOn className={ styles.icon } />
+              <MdOutlineLocationOn className={ styles.icon } data-testid="location-icon" />
 
               <Typography>{ user?.location }</Typography>
             </div>

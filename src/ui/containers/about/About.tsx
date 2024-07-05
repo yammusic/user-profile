@@ -14,6 +14,7 @@ export function AboutSection() {
   return (
     <section
       className={ `${styles.about} ${isDark ? styles.dark : ''}` }
+      data-testid="about-section"
       id="about"
     >
       <Title dark={ isDark }>Sobre mi</Title>

@@ -86,6 +86,7 @@ export function Header() {
             <IconButton
               className={ isDark ? 'text-blue-gray-100' : '' }
               onClick={ onToggle }
+              role="button"
               variant="text"
             >
               { colorMode === 'light' ? <CiDark size={ 24 } /> : <CiLight size={ 24 } /> }

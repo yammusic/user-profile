@@ -30,7 +30,7 @@ const config: Config = {
     '<rootDir>/dist'
   ],
   transformIgnorePatterns: [
-    '<rootDir>/node_modules/'
+    '<rootDir>/node_modules/',
   ],
 }
 

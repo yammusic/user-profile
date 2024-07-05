@@ -55,7 +55,6 @@ export function ContactForm(props: Readonly<ContactFormProps>) {
       setLoading(false)
     }
   }
-  console.log({ dark })
 
   return (
     <form
@@ -73,6 +72,7 @@ export function ContactForm(props: Readonly<ContactFormProps>) {
               required
               color={ dark ? 'white' : 'gray' }
               dark={ dark }
+              data-testid="name-input"
               error={ errors.name?.message }
               helperText={ 'Escriba su nombre completo' }
               label="Nombre"
@@ -93,6 +93,7 @@ export function ContactForm(props: Readonly<ContactFormProps>) {
               required
               color={ dark ? 'white' : 'gray' }
               dark={ dark }
+              data-testid="email-input"
               error={ errors.email?.message }
               helperText={ 'Escriba su correo electrónico' }
               label="Email"
@@ -118,6 +119,7 @@ export function ContactForm(props: Readonly<ContactFormProps>) {
               { ...field }
               required
               className={ dark ? 'text-white border-white focus:!border-white' : '' }
+              data-testid="message-input"
               error={ errors.message?.message }
               label="Mensaje"
               labelProps={ { className: `text-sm ${ dark ? '!text-white' : '' }` } }
@@ -127,7 +129,12 @@ export function ContactForm(props: Readonly<ContactFormProps>) {
         />
       </div>
 
-      <Button color="blue" loading={ loading } type="submit">
+      <Button
+        color="blue"
+        data-testid="submit-button"
+        loading={ loading }
+        type="submit"
+      >
         { loading ? 'Enviando...' : 'Enviar' }
       </Button>
     </form>
