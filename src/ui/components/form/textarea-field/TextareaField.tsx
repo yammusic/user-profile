@@ -7,7 +7,10 @@ export function TextareaField(props: Readonly<TextareaFieldProps>) {
   const { error, helperText, ...rest } = props
 
   return (
-    <div className={ styles.container }>
+    <div
+      className={ styles.container }
+      data-testid="textarea-field"
+    >
       <Textarea
         error={ !!error }
         labelProps={ { className: styles.label } }

@@ -7,7 +7,10 @@ export function TextField(props: Readonly<TextFieldProps>) {
   const { dark, error, helperText, ...rest } = props
 
   return (
-    <div className={ `${styles.container} ${dark ? styles.dark : ''}` }>
+    <div
+      className={ `${styles.container} ${dark ? styles.dark : ''}` }
+      data-testid="text-field"
+    >
       <Input
         error={ !!error }
         labelProps={ { className: styles.label } }
