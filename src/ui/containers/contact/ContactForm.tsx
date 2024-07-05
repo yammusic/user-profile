@@ -72,6 +72,7 @@ export function ContactForm(props: Readonly<ContactFormProps>) {
               { ...field }
               required
               color={ dark ? 'white' : 'gray' }
+              dark={ dark }
               error={ errors.name?.message }
               helperText={ 'Escriba su nombre completo' }
               label="Nombre"
@@ -91,6 +92,7 @@ export function ContactForm(props: Readonly<ContactFormProps>) {
               { ...field }
               required
               color={ dark ? 'white' : 'gray' }
+              dark={ dark }
               error={ errors.email?.message }
               helperText={ 'Escriba su correo electrónico' }
               label="Email"

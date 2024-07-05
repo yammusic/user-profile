@@ -5,6 +5,13 @@
     gap-1
     mb-1;
 
+  &.dark {
+    .helper {
+      @apply
+        text-gray-400;
+    }
+  }
+
   .label {
     @apply
       text-sm;

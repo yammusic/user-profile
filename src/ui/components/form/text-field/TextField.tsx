@@ -4,10 +4,10 @@ import type { TextFieldProps } from './types'
 import styles from './styles.module.scss'
 
 export function TextField(props: Readonly<TextFieldProps>) {
-  const { error, helperText, ...rest } = props
+  const { dark, error, helperText, ...rest } = props
 
   return (
-    <div className={ styles.container }>
+    <div className={ `${styles.container} ${dark ? styles.dark : ''}` }>
       <Input
         error={ !!error }
         labelProps={ { className: styles.label } }
