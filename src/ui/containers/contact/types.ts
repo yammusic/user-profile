@@ -3,3 +3,7 @@ export interface ContactFormData {
   email: string
   message: string
 }
+
+export interface ContactFormProps {
+  dark?: boolean
+}

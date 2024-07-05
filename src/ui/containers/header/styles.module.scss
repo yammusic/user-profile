@@ -14,10 +14,15 @@ $navbarHeight: 80px;
       h-[#{$navbarHeight}]
       w-full
       rounded-none
-      px-4
+      px-6
       py-2
       lg:px-8
       lg:py-4;
+
+    &.dark {
+      @apply
+        bg-[var(--slate-900)];
+    }
 
     .content {
       @apply
@@ -42,7 +47,8 @@ $navbarHeight: 80px;
             flex
             flex-col
             gap-1
-            mt-[-4rem];
+            mt-[-4rem]
+            dark:text-blue-gray-300;
         }
       }
 

@@ -9,6 +9,11 @@
     gap-6
     box-border;
 
+  &.dark {
+    @apply
+      bg-[var(--slate-900)];
+  }
+
   .content {
     @apply
       flex

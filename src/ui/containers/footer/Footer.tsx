@@ -1,11 +1,18 @@
+'use client'
+
 import React from 'react'
-import { Avatar, Typography } from '@/app/components/common'
-import styles from './styles.module.scss'
 import Link from 'next/link'
 
+import { Avatar, Typography } from '@/app/components/common'
+import { useUser } from '@/domain/contexts/user'
+import styles from './styles.module.scss'
+
 export function Footer() {
+  const { colorMode } = useUser()
+  const isDark = colorMode === 'dark'
+
   return (
-    <footer className={ styles.footer }>
+    <footer className={ `${styles.footer} ${isDark ? styles.dark : ''}` }>
       <div className={ styles.content }>
         <Avatar
           alt="footer-avatar"

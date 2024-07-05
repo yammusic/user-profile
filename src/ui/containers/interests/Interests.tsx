@@ -8,11 +8,15 @@ import { useUser } from '@/domain/contexts/user'
 import styles from './styles.module.scss'
 
 export function InterestsSection() {
-  const { user } = useUser()
+  const { colorMode, user } = useUser()
+  const isDark = colorMode === 'dark'
 
   return (
-    <section className={ styles.interests } id="interests">
-      <Title>Intereses</Title>
+    <section
+      className={ `${styles.interests} ${isDark ? styles.dark : ''}` }
+      id="interests"
+    >
+      <Title dark={ isDark }>Intereses</Title>
 
       <div className={ styles.container }>
         { user?.interests?.map(({ Icon, title, description }) => (

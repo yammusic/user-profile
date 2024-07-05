@@ -17,6 +17,7 @@ import styles from './styles.module.scss'
 
 export function Header() {
   const { user, colorMode, toggleColorMode } = useUser()
+  const isDark = colorMode === 'dark'
 
   const onToggle = () => {
     toggleColorMode()
@@ -31,7 +32,11 @@ export function Header() {
         width={ BANNER_WIDTH }
       />
 
-      <Navbar className={ styles.navbar }>
+      <Navbar
+        className={ `${styles.navbar} ${isDark ? styles.dark : ''}` }
+        color={ isDark ? 'transparent' : 'white' }
+        variant="filled"
+      >
         <div className={ styles.content }>
           <div className={ styles.column }>
             <Avatar
@@ -43,7 +48,10 @@ export function Header() {
             />
 
             <div className={ styles.userInfo }>
-              <Typography variant="h5">
+              <Typography
+                className={ isDark ? 'text-blue-gray-100' : '' }
+                variant="h5"
+              >
                 { user?.name }
               </Typography>
 
@@ -55,7 +63,11 @@ export function Header() {
           </div>
 
           <div className={ styles.actions }>
-            <IconButton onClick={ onToggle } variant="text">
+            <IconButton
+              className={ isDark ? 'text-blue-gray-100' : '' }
+              onClick={ onToggle }
+              variant="text"
+            >
               { colorMode === 'light' ? <CiDark size={ 24 } /> : <CiLight size={ 24 } /> }
             </IconButton>
           </div>

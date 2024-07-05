@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-handler-names */
 import React, { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { useSnackbar } from 'notistack'
@@ -8,10 +9,11 @@ import { TextField, TextareaField } from '@/app/components/form'
 import { REGEX_EMAIL } from '@/domain/constants/app'
 import { delay } from '@/domain/utils/delay'
 
-import type { ContactFormData } from './types'
+import type { ContactFormData, ContactFormProps } from './types'
 import styles from './styles.module.scss'
 
-export function ContactForm() {
+export function ContactForm(props: Readonly<ContactFormProps>) {
+  const { dark } = props
   const [loading, setLoading] = useState(false)
   const { enqueueSnackbar } = useSnackbar()
 
@@ -53,10 +55,14 @@ export function ContactForm() {
       setLoading(false)
     }
   }
+  console.log({ dark })
 
   return (
-    // eslint-disable-next-line react/jsx-handler-names
-    <form noValidate className={ styles.form } onSubmit={ handleSubmit(onSubmit) }>
+    <form
+      noValidate
+      className={ `${styles.form} ${dark ? styles.dark : ''}` }
+      onSubmit={ handleSubmit(onSubmit) }
+    >
       <div>
         <Controller
           control={ control }
@@ -65,6 +71,7 @@ export function ContactForm() {
             <TextField
               { ...field }
               required
+              color={ dark ? 'white' : 'gray' }
               error={ errors.name?.message }
               helperText={ 'Escriba su nombre completo' }
               label="Nombre"
@@ -83,6 +90,7 @@ export function ContactForm() {
             <TextField
               { ...field }
               required
+              color={ dark ? 'white' : 'gray' }
               error={ errors.email?.message }
               helperText={ 'Escriba su correo electrónico' }
               label="Email"
@@ -107,8 +115,10 @@ export function ContactForm() {
             <TextareaField
               { ...field }
               required
+              className={ dark ? 'text-white border-white focus:!border-white' : '' }
               error={ errors.message?.message }
               label="Mensaje"
+              labelProps={ { className: `text-sm ${ dark ? '!text-white' : '' }` } }
             />
           ) }
           rules={ { required: 'El mensaje es obligatorio' } }

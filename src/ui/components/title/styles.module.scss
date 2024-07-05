@@ -1,7 +1,12 @@
 .title {
   @apply
-    text-blue-gray-800
-    mb-6;
+    mb-6
+    text-blue-gray-800;
+
+  &.dark {
+    @apply
+      text-blue-gray-100;
+  }
 }
 
 .underline {

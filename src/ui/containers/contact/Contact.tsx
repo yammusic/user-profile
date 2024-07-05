@@ -12,11 +12,15 @@ import { ContactForm } from './ContactForm'
 import styles from './styles.module.scss'
 
 export function ContactSection() {
-  const { user } = useUser()
+  const { colorMode, user } = useUser()
+  const isDark = colorMode === 'dark'
 
   return (
-    <section className={ styles.contact } id="contact">
-      <Title>Contacto</Title>
+    <section
+      className={ `${styles.contact} ${isDark ? styles.dark : ''}` }
+      id="contact"
+    >
+      <Title dark={ isDark }>Contacto</Title>
 
       <div className={ styles.content }>
         <div className={ styles.infoContainer }>
@@ -58,7 +62,7 @@ export function ContactSection() {
             ¡Escribime un mensaje para contactarme!
           </Typography>
 
-          <ContactForm />
+          <ContactForm dark={ isDark } />
         </div>
       </div>
     </section>

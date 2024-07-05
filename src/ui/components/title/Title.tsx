@@ -5,11 +5,11 @@ import type { TitleProps } from './types'
 import styles from './styles.module.scss'
 
 export function Title(props: Readonly<TitleProps>) {
-  const { children, ...rest } = props
+  const { children, dark, ...rest } = props
 
   return (
     <Typography
-      className={ styles.title }
+      className={ `${styles.title} ${dark ? styles.dark : ''}` }
       variant="h3"
       { ...rest }
     >

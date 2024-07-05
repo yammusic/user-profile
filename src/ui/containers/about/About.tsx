@@ -8,11 +8,15 @@ import { useUser } from '@/domain/contexts/user'
 import styles from './styles.module.scss'
 
 export function AboutSection() {
-  const { user } = useUser()
+  const { colorMode, user } = useUser()
+  const isDark = colorMode === 'dark'
 
   return (
-    <section className={ styles.about } id="about">
-      <Title>Sobre mi</Title>
+    <section
+      className={ `${styles.about} ${isDark ? styles.dark : ''}` }
+      id="about"
+    >
+      <Title dark={ isDark }>Sobre mi</Title>
 
       { user?.description.map((paragraph) => (
         <Typography key={ paragraph }>{ paragraph }</Typography>

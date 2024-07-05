@@ -7,4 +7,9 @@
     flex
     flex-col
     gap-4;
+
+  &.dark {
+    @apply
+      bg-[var(--slate-900)];
+  }
 }

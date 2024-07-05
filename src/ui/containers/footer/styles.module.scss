@@ -5,6 +5,30 @@
     p-12
     mt-12;
 
+  &.dark {
+    @apply
+      bg-[var(--slate-900)];
+
+    .content {
+      .nav {
+        .link {
+          @apply
+            text-blue-gray-100;
+        }
+      }
+    }
+
+    .divider {
+      @apply
+        border-[var(--slate-950)];
+    }
+
+    .copyright {
+      @apply
+        text-blue-gray-100;
+    }
+  }
+
   .content {
     @apply
       flex
@@ -14,7 +38,6 @@
       justify-center
       gap-y-6
       gap-x-12
-      bg-white
       text-center
       md:justify-between;
 
